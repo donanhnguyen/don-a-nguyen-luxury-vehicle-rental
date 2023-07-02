@@ -1,7 +1,7 @@
 "use client";
 import Image from 'next/image'
 import Nav from './nav'
-import React, {useState, ChangeEvent} from 'react';
+import React, {useState, ChangeEvent, useEffect} from 'react';
 import vehicleListings from './data';
 
 type VehicleListingProps = {
@@ -17,17 +17,21 @@ const VehicleListingCard: React.FC<{ vehicleListing: VehicleListingProps }> = ({
   vehicleListing,
 }) => {
   return (
-    <div className="border p-4 mb-4">
-      <h3>{vehicleListing.name}</h3>
-      <p>Price: ${vehicleListing.price} per hour</p>
-      <p>Capacity: {vehicleListing.capacity} people</p>
-      <p>Type: {vehicleListing.type}</p>
-      <Image 
-        alt={vehicleListing.name} 
-        src={vehicleListing.imageUrl}
-        width={300}
-        height={300}
-      />
+    <div className="border p-4 mb-4 rounded-lg shadow-lg">
+      <div className="mt-4">
+        <Image 
+          alt={vehicleListing.name} 
+          src={vehicleListing.imageUrl}
+          width={300}
+          height={300}
+          className="rounded-md"
+        />
+      </div> 
+      <h3 className="text-xl font-semibold mb-2">{vehicleListing.name}</h3>
+      <p className="text-gray-600">Capacity: {vehicleListing.capacity} people</p>
+      <p className="text-gray-600">Type: {vehicleListing.type}</p>
+           
+      <p className="text-yellow-500 text-xl font-serif">${vehicleListing.price} per hour</p>
     </div>
   );
 };
@@ -38,6 +42,7 @@ export default function Home() {
   const [vehicleType, setVehicleType] = useState<string>('');
   const [eventType, setEventType] = useState<string>('');
   const [groupSize, setGroupSize] = useState<number | ''>('');
+  const [numberOfResults, setNumberOfResults] = useState<number | ''>('');
 
   const handleEventDateChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEventDate(event.target.value);
@@ -71,9 +76,14 @@ export default function Home() {
     return `${year}-${month}-${day}`;
   };
 
+  useEffect(() => {
+    setNumberOfResults(vehicleListings.length);
+  }, [])
+
   return (
     <main className="">
 
+      {/* Nav Bar */}
       <Nav />
 
       {/* container div */}
@@ -137,6 +147,7 @@ export default function Home() {
 
         {/* search results based on filters */}
         <div id="searchResults" className="w-2/4">
+          <h1 className="text-3xl font-bold text-center mb-6">{numberOfResults}: Results</h1>
           {/* Search results based on filters */}
             <div className="grid grid-cols-2 gap-4">
               {vehicleListings.map((vehicleListing, index) => (
