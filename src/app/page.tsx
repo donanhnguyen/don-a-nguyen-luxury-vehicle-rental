@@ -1,40 +1,8 @@
 "use client";
-import Image from 'next/image'
 import Nav from './nav'
 import React, {useState, ChangeEvent} from 'react';
 import vehicleListings from './data';
-
-type VehicleListingProps = {
-    name: string,
-    price: number,
-    imageUrl: any,
-    capacity: number,
-    type: string,
-    unavailableDates: string[]
-}
-
-const VehicleListingCard: React.FC<{ vehicleListing: VehicleListingProps }> = ({
-  vehicleListing,
-}) => {
-  return (
-    <div className="border p-4 mb-4 rounded-lg shadow-lg hover:bg-gray-200">
-      <div className="mt-4">
-        <Image 
-          alt={vehicleListing.name} 
-          src={vehicleListing.imageUrl}
-          width={300}
-          height={300}
-          className="rounded-md"
-        />
-      </div> 
-      <h3 className="text-xl font-semibold mb-2">{vehicleListing.name}</h3>
-      <p className="text-gray-600">Capacity: {vehicleListing.capacity} people</p>
-      <p className="text-gray-600">Type: {vehicleListing.type}</p>
-           
-      <p className="bg-black text-yellow-500 text-xl font-roboto px-4 py-2">${vehicleListing.price} per hour</p>
-    </div>
-  );
-};
+import VehicleListingCard from './VehicleListingCard';
 
 export default function Home() {
 
@@ -164,7 +132,7 @@ export default function Home() {
               onChange={handleVehicleTypeChange}
               className="p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="">Select vehicle type</option>
+              <option value="">No Filter</option>
               <option value="Sedan">Sedan</option>
               <option value="Limo">Limo</option>
               <option value="SUV">SUV</option>
@@ -178,7 +146,7 @@ export default function Home() {
               onChange={handleEventTypeChange}
               className="p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="">Select event type</option>
+              <option value="">No Filter</option>
               <option value="birthday">Birthday</option>
               <option value="bachelorParty">Bachelor Party</option>
               <option value="wedding">Wedding</option>
@@ -230,7 +198,7 @@ export default function Home() {
           
           <h1 className="text-3xl font-bold text-center mb-6">{displaySearchResults().length} Results:</h1>
           {/* Search results based on filters */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
               {/* display them */}
               {displaySearchResults()}

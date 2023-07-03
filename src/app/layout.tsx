@@ -18,6 +18,8 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <meta name="description" content="Shofeur is your go-to resource for booking luxury vehicle experiences for your special occasions!" />
+        <meta name="keywords" content="group transportation, luxury vehicles, bachelor party, bachelorette party, special occasions, car rental, chauffeur"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>
       <body className={inter.className}>{children}</body>
     </html>
