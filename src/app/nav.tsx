@@ -6,7 +6,7 @@ export default function Nav () {
              <ul className="flex items-center bg-gray-800 w-screen">
                 <li>
                     <h1 className="italic text-4xl text-white">
-                        <span className="text-orange-500">S</span>HOFEUR
+                        <span className="text-orange-500">DON </span>ANH NGUYEN LUXURY VEHICLES
                     </h1>
                 </li>
             </ul>
