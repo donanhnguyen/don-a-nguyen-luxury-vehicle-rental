@@ -1,12 +1,16 @@
 "use client";
 import Nav from './nav'
-import React, {useState, ChangeEvent} from 'react';
+import React, {useState, ChangeEvent, useEffect} from 'react';
 import vehicleListings from './data';
 import VehicleListingCard from './VehicleListingCard';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
 
+  const router = useRouter();
+
   // states
+  
   const [eventDate, setEventDate] = useState<string>();
   const [vehicleType, setVehicleType] = useState<string>();
   const [eventType, setEventType] = useState<string>();
@@ -107,10 +111,10 @@ export default function Home() {
 
       {/* Nav Bar */}
       <Nav />
-
+     
       {/* container div */}
-      <div className="flex mx-auto w-full md:w-3/5">
-
+      <div className="flex mx-auto w-full md:w-3/5 mt-24">
+ 
         {/* search filters section */}
         <div id='searchFilters' className="flex flex-col gap-4 w-2/4 p-4 bg-gray-200 mr-2">
             <h2 className='text-3xl font-bold text-center mb-6'>Search Filters</h2>
