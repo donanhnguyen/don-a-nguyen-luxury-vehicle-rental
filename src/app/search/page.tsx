@@ -5,7 +5,7 @@ export default function Hi () {
 
 
     return (
-        <h1>FUKkkkkkkk</h1>
+        <h1>HELLOOOOOOO</h1>
     )
 
 }
