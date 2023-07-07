@@ -1,13 +1,13 @@
-import vh1 from '../../images/vh1.jpg'
-import vh2 from '../../images/vh2.jpg'
-import vh3 from '../../images/vh3.jpg'
-import vh4 from '../../images/vh4.jpg'
-import vh5 from '../../images/vh5.jpg'
-import vh6 from '../../images/vh6.jpg'
-import vh7 from '../../images/vh7.jpg'
-import vh8 from '../../images/vh8.jpg'
-import vh9 from '../../images/vh9.jpg'
-import vh10 from '../../images/vh10.jpg'
+import vh1 from './images/vh1.jpg'
+import vh2 from './images/vh2.jpg'
+import vh3 from './images/vh3.jpg'
+import vh4 from './images/vh4.jpg'
+import vh5 from './images/vh5.jpg'
+import vh6 from './images/vh6.jpg'
+import vh7 from './images/vh7.jpg'
+import vh8 from './images/vh8.jpg'
+import vh9 from './images/vh9.jpg'
+import vh10 from './images/vh10.jpg'
 
 type VehicleListing = {
     name: string;
